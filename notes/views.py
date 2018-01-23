@@ -17,3 +17,13 @@ def entry_detail(request, id):
 		'object': note
 	}
 	return render(request, "notes/entries_detail.html", context)
+
+
+#CRUD
+
+#CREATE
+#RETRIEVE / DETAIL
+#UPDATE
+#DELETE
+
+#LIST

@@ -11,7 +11,7 @@
 			<div class="col-sm-3 col-sm-offset-3">
 				<h1>My Entries</h1>
 				{% for object in object_list %}
-					<p>{{ object.title }}</p>
+					<p><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></p>
 					<p>{{ object.description }}</p>
 				{% endfor %}
 			</div>
