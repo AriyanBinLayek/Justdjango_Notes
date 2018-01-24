@@ -44,10 +44,11 @@ def entry_update(request, id):
 		entry = get_object_or_404(Entry, id=entry_id)
 		return redirect(entry.get_absolute_url())
 	context = {
-		'form': form
+		'form': form,
+		'instance': 'object'
 	}
 
-	return render(request, "notes/entries_create.html", context)		
+	return render(request, "notes/entries_update.html", context)		
 
 
 #CRUD
