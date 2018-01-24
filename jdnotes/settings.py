@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'notes'
 ]
 
+CRISPY_TEMPLATE_PACK = 'Bootstrap3'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
