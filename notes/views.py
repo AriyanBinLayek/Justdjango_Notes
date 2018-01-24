@@ -21,7 +21,7 @@ def entry_detail(request, id):
 
 
 def entry_create(request):
-	form = EntryModelForm(request.POST or None, request.FILES)
+	form = EntryModelForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
 		form.instance.user = request.user
 		form.save()
@@ -33,6 +33,21 @@ def entry_create(request):
 	}
 
 	return render(request, "notes/entries_create.html", context)
+
+
+def entry_update(request, id):
+	instance = get_object_or_404(Entry, id=id)
+	form = EntryModelForm(request.POST or None, request.FILES or None, instance=instance)
+	if form.is_valid():
+		form.save()
+		entry_id = form.instance.id
+		entry = get_object_or_404(Entry, id=entry_id)
+		return redirect(entry.get_absolute_url())
+	context = {
+		'form': form
+	}
+
+	return render(request, "notes/entries_create.html", context)		
 
 
 #CRUD
