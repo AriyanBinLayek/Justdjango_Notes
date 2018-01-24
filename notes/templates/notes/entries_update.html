@@ -10,7 +10,7 @@
 				{% csrf_token %}
 				{{ form|crispy }}
 				<input type="submit" name="submit" class="btn btn-primary" placeholder="Submit">
-				<button class="btn btn-default"><a href="{{ object.get_absolute_url }}">Cancel</a></button>
+				<button class="btn btn-default"><a href="{{ object.get_absolute_url }}"></a>Cancel</button>
 			</form>	
 
 		</div>

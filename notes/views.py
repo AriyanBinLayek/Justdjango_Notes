@@ -1,4 +1,5 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 
 # Create your views here.
 from .forms import EntryModelForm
@@ -27,6 +28,7 @@ def entry_create(request):
 		form.save()
 		entry_id = form.instance.id
 		entry = get_object_or_404(Entry, id=entry_id)
+		messages.info(request, 'Created a New Note.')
 		return redirect(entry.get_absolute_url())
 	context = {
 		'form': form
