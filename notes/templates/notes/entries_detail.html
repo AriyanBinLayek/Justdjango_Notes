@@ -2,6 +2,9 @@
 
 {% block content %}
 				<h1>Entry {{ object.id }}</h1>
-					<p>{{ object.title }}</p>
-					<p>{{ object.description }}</p>
+					<p>Title: {{ object.title }}</p>
+					<p>Description: {{ object.description }}</p>
+					<p>Date Created: {{ object.timestamp|timesince }} ago</p>
+					<p>Last Updated: {{ object.updated }}</p>
+					<img src="{{ object.image.url }}">
 {% endblock content %}
