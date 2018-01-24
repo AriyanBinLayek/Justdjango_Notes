@@ -38,6 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # Installed libraries
+    'crispy_forms',
+
+    # Our own apps
     'notes'
 ]
 
