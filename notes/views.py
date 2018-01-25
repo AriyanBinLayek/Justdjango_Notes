@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
+from django.http import HttpResponse
 
 # Create your views here.
 from .forms import EntryModelForm
@@ -52,6 +53,23 @@ def entry_update(request, id):
 
 	return render(request, "notes/entries_update.html", context)		
 
+
+def entry_delete(request, id):
+	entry = get_object_or_404(Entry, id=id)
+	if entry.user != request.user:
+		response = HttpResponse("You don't have permission to delete this note.")
+		response.status_code = 403
+		return response
+
+	if request.method == "POST":
+		entry.delete()
+		messages.info(request, "This note has been successfully deleted.")
+		return redirect("/entries/")
+
+	context = {
+		'object': entry
+	}
+	return render(request, "notes/entries_delete.html", context)
 
 #CRUD
 
