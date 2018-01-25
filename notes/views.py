@@ -6,8 +6,9 @@ from django.http import HttpResponse
 from .forms import EntryModelForm
 from .models import Entry
 
+
 def entry_list(request):
-	entries = Entry.objects.all()
+	entries = Entry.objects.filter(user=request.user)
 	context = {
 		'object_list': entries
 	}
@@ -70,12 +71,3 @@ def entry_delete(request, id):
 		'object': entry
 	}
 	return render(request, "notes/entries_delete.html", context)
-
-#CRUD
-
-#CREATE
-#RETRIEVE / DETAIL
-#UPDATE
-#DELETE
-
-#LIST
