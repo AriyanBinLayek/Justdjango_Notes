@@ -1,12 +1,13 @@
-from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
+from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
 from .forms import EntryModelForm
 from .models import Entry
 
-
+@login_required
 def entry_list(request):
 	entries = Entry.objects.filter(user=request.user)
 	context = {
@@ -14,7 +15,7 @@ def entry_list(request):
 	}
 	return render(request, "notes/entries.html", context)
 
-
+@login_required
 def entry_detail(request, id):
 	note = get_object_or_404(Entry, id=id)
 	context = {
@@ -22,7 +23,7 @@ def entry_detail(request, id):
 	}
 	return render(request, "notes/entries_detail.html", context)
 
-
+@login_required
 def entry_create(request):
 	form = EntryModelForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
@@ -38,7 +39,7 @@ def entry_create(request):
 
 	return render(request, "notes/entries_create.html", context)
 
-
+@login_required
 def entry_update(request, id):
 	instance = get_object_or_404(Entry, id=id)
 	form = EntryModelForm(request.POST or None, request.FILES or None, instance=instance)
@@ -54,7 +55,7 @@ def entry_update(request, id):
 
 	return render(request, "notes/entries_update.html", context)		
 
-
+@login_required
 def entry_delete(request, id):
 	entry = get_object_or_404(Entry, id=id)
 	if entry.user != request.user:
