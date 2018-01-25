@@ -153,3 +153,4 @@ MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(VENV_PATH, 'media_root')
 
+LOGIN_REDIRECT_URL = '/entries/'
