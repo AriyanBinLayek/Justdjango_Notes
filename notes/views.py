@@ -1,3 +1,4 @@
+from django.db.models import Q
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
@@ -10,6 +11,12 @@ from .models import Entry
 @login_required
 def entry_list(request):
 	entries = Entry.objects.filter(user=request.user)
+	query = request.GET.get("q")
+	if query:
+		entries = entries.filter(
+					Q(title__icontains=query)|
+					Q(description__icontains=query)
+					).distinct()
 	context = {
 		'object_list': entries
 	}
