@@ -5,7 +5,7 @@ from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 
 # Create your views here.
-from .forms import EntryModelForm
+from .forms import EntryForm
 from .models import Entry
 
 @login_required
@@ -22,6 +22,7 @@ def entry_list(request):
 	}
 	return render(request, "notes/entries.html", context)
 
+
 @login_required
 def entry_detail(request, id):
 	note = get_object_or_404(Entry, id=id)
@@ -30,14 +31,28 @@ def entry_detail(request, id):
 	}
 	return render(request, "notes/entries_detail.html", context)
 
+
 @login_required
 def entry_create(request):
-	form = EntryModelForm(request.POST or None, request.FILES or None)
+	form = EntryForm(request.POST or None, request.FILES or None)
 	if form.is_valid():
-		form.instance.user = request.user
-		form.save()
-		entry_id = form.instance.id
-		entry = get_object_or_404(Entry, id=entry_id)
+		title = request.POST.get("title")
+		description = request.POST.get("description")
+		image = request.FILES.get("image")
+
+		entry = Entry()
+		entry.title = title
+		entry.description = description
+		entry.image = image
+		entry.user = request.user
+		entry.save()
+		print(entry)
+
+		# For the model form
+		#form.instance.user = request.user
+		#form.save()
+		#entry_id = form.instance.id
+		#entry = get_object_or_404(Entry, id=entry_id)
 		messages.info(request, 'Created a New Note.')
 		return redirect(entry.get_absolute_url())
 	context = {
@@ -49,11 +64,12 @@ def entry_create(request):
 @login_required
 def entry_update(request, id):
 	instance = get_object_or_404(Entry, id=id)
-	form = EntryModelForm(request.POST or None, request.FILES or None, instance=instance)
+	form = EntryForm(request.POST or None, request.FILES or None, instance=instance)
 	if form.is_valid():
 		form.save()
 		entry_id = form.instance.id
 		entry = get_object_or_404(Entry, id=entry_id)
+		messages.info(request, 'Succesfully update your Note.')
 		return redirect(entry.get_absolute_url())
 	context = {
 		'form': form,
