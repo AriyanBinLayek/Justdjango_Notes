@@ -1,7 +1,7 @@
 # Justdjango_Notes
 A personal notepad built with Django and Bootstrap3.
 
-![alt text](https://github.com/justdjango/Justdjango_Notes/edit/master/thumbnail.png "Logo Title Text 1")
+![alt text](https://github.com/justdjango/Justdjango_Notes/thumbnail.png "Logo")
 
 ## Commits according to lessons:
 
