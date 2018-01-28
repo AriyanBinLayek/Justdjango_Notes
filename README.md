@@ -1,7 +1,7 @@
 # Justdjango_Notes
 A personal notepad built with Django and Bootstrap3.
 
-![alt text](https://github.com/justdjango/Justdjango_Notes/edit/master/ "Logo Title Text 1")
+![alt text](https://github.com/justdjango/Justdjango_Notes/edit/master/thumbnail.png "Logo Title Text 1")
 
 ## Commits according to lessons:
 
@@ -30,6 +30,8 @@ A personal notepad built with Django and Bootstrap3.
 23. Login Required
 24. Q Lookups with Searching
 25. Navbar Dropdown Form
+
+Thanks for watching!
 
 # Where to find us
 Like us on [Facebook](https://www.facebook.com/justdjangocode/)
