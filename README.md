@@ -1,7 +1,9 @@
 # Justdjango_Notes
 A personal notepad built with Django and Bootstrap3.
 
-# Commits according to lessons:
+![alt text](https://github.com/justdjango/Justdjango_Notes/edit/master/ "Logo Title Text 1")
+
+## Commits according to lessons:
 
 1. Added Entry Model
 2. Entry Model View, Url and Template
@@ -30,10 +32,10 @@ A personal notepad built with Django and Bootstrap3.
 25. Navbar Dropdown Form
 
 # Where to find us
-[Facebook](https://www.facebook.com/justdjangocode/)
+Like us on [Facebook](https://www.facebook.com/justdjangocode/)
 
-[Instagram](https://www.instagram.com/justdjangocode/)
+Follow us on [Instagram](https://www.instagram.com/justdjangocode/)
 
-[YouTube](https://www.youtube.com/channel/UCRM1gWNTDx0SHIqUJygD-kQ)
+Subscribe to our [YouTube](https://www.youtube.com/channel/UCRM1gWNTDx0SHIqUJygD-kQ) Channel
 
-[Our Website](https://www.justdjango.com)
+Or visit [our Website](https://www.justdjango.com) to sign up for our news letter (with discount codes for future courses)
