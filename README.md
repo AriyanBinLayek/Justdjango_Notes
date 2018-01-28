@@ -31,6 +31,9 @@ A personal notepad built with Django and Bootstrap3.
 
 # Where to find us
 [Facebook](https://www.facebook.com/justdjangocode/)
+
 [Instagram](https://www.instagram.com/justdjangocode/)
+
 [YouTube](https://www.youtube.com/channel/UCRM1gWNTDx0SHIqUJygD-kQ)
+
 [Our Website](https://www.justdjango.com)
